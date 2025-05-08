@@ -1,0 +1,12 @@
+services:
+  tracker:
+    build:
+      context: .
+      dockerfile: ./deploy/Dockerfile
+    command: python main.py
+    volumes:
+      - ./:/home/app/web
+    ports:
+      - "8081:8081"
+    env_file:
+      - ./.env
